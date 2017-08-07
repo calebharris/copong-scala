@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "outDir": "build",
+    "target": "es6"
+  },
+  "include": [
+    "./*.ts"
+  ]
+}
