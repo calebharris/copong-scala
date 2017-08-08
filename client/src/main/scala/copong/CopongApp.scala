@@ -5,9 +5,6 @@ import com.outr.pixijs.RendererOptions
 import org.scalajs.dom.{document, window}
 import copong.facades.faye.Faye
 
-import scala.scalajs.js
-import scala.scalajs.js.annotation.ScalaJSDefined
-
 /**
   * @author Caleb Harris
   */
@@ -28,16 +25,21 @@ object CopongApp {
   def main(args: Array[String]): Unit = {
     document.body.appendChild(renderer.view)
     val ballSprite = Sprite.fromImage(BALL_FILE)
+    val paddleSprite = Sprite.fromImage(PADDLE_FILE)
     ballSprite.x = GAME_W / 2
     ballSprite.y = GAME_H / 2
+    paddleSprite.x = GAME_W / 2
+    paddleSprite.y = GAME_H - 31
 
     stage.addChild(ballSprite)
+    stage.addChild(paddleSprite)
     window.requestAnimationFrame(update)
 
     val client = new Faye.Client("/topics")
     client.subscribe("/topics/game/state", (event: GameStateEvent) => {
       ballSprite.x = event.state.ball.pos.x
       ballSprite.y = event.state.ball.pos.y
+      paddleSprite.x = event.state.paddle.pos.x
     })
   }
 
