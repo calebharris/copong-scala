@@ -8,12 +8,12 @@ import scala.scalajs.js.annotation.ScalaJSDefined
   */
 @ScalaJSDefined
 trait Vector1D extends js.Object {
-  val x: Int
+  val x: Double
 }
 
 @ScalaJSDefined
 trait Vector2D extends Vector1D {
-  val y: Int
+  val y: Double
 }
 
 @ScalaJSDefined
@@ -33,3 +33,9 @@ trait GameStateEvent extends js.Object {
   val name: String
   val state: GameState
 }
+
+@ScalaJSDefined
+class GameInputPayload(val key: String) extends js.Object
+
+@ScalaJSDefined
+class GameInputEvent(val name: String, val payload: GameInputPayload) extends js.Object
