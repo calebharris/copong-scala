@@ -11,14 +11,12 @@ scalaJSUseMainModuleInitializer := true
 
 libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "0.9.3"
 libraryDependencies += "com.outr" %%% "scalajs-pixijs" % "4.5.3"
-libraryDependencies += "com.lihaoyi" %%% "utest" % "0.4.4" % "test"
+libraryDependencies += "com.github.lukajcb" %%% "rxscala-js" % "0.14.0"
 
-testFrameworks += new TestFramework("utest.runner.Framework")
-
-//skip in packageJSDependencies := false
 npmDependencies in Compile ++= Seq(
   "faye" -> "1.2.4",
-  "pixi.js" -> "4.5.3"
+  "pixi.js" -> "4.5.3",
+  "rxjs" -> "5.3.0"
 )
 npmDevDependencies in Compile += "expose-loader" -> "0.7.1"
 
