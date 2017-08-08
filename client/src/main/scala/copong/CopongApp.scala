@@ -1,9 +1,8 @@
 package copong
 
 import com.outr.pixijs.PIXI.{Container, Sprite, autoDetectRenderer}
-import com.outr.pixijs.{PIXI, RendererOptions}
-import org.scalajs.dom
-import dom.{document, window}
+import com.outr.pixijs.RendererOptions
+import org.scalajs.dom.{document, window}
 
 /**
   * @author Caleb Harris
@@ -29,11 +28,12 @@ object CopongApp {
 
     stage.addChild(ballSprite)
     window.requestAnimationFrame(update)
+
+
   }
 
   def update(time: Double): Unit = {
     renderer.render(stage)
     window.requestAnimationFrame(update)
   }
-
 }
