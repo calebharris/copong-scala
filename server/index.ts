@@ -23,7 +23,7 @@ const state = {
   },
   ball: {
     v:   { x: 2, y: 2 },
-    pos: { x: 0, y: (480 - 17) / 2 }
+    pos: { x: 0, y: Math.floor((480 - 17) / 2) }
   },
 };
 
@@ -74,7 +74,7 @@ function applyBallV(state) {
       };
       state.ball = {
         v:   { x: 2, y: 2 },
-        pos: { x: 0, y: (480 - 17) / 2 }
+        pos: { x: 0, y: Math.floor((480 - 17) / 2 )}
       };
     }
   }
